@@ -37,6 +37,14 @@ public class MinesweeperTest {
         );
     }
 
+    @Test
+    void itDisplaysSeveralMines() {
+        assertArrayEquals(
+                new String[] {"***", "***"},
+                displayBoard(new String[] {"***", "***"})
+        );
+    }
+
 
 
     private String[] displayBoard(String[] input) {
@@ -44,8 +52,12 @@ public class MinesweeperTest {
             return new String[] { "*" };
         }
         String[] board = new String[input.length];
-        for (int i = 0; i < board.length; i++) {
-            board[i] = "0";
+        for (int row = 0; row < board.length; row++) {
+            String rowString = "";
+            for (int column = 0; column < input[row].length(); column++) {
+                rowString += "0";
+            }
+            board[row] = rowString;
         }
         return board;
     }
