@@ -13,7 +13,15 @@ public class MinesweeperTest {
         );
     }
 
+    @Test
+    void itShouldDisplaySingleMine() {
+        assertArrayEquals(
+                new String[] { "*" },
+                displayBoard(new String[] { "*" })
+        );
+    }
+
     private String[] displayBoard(String[] input) {
-        return new String[0];
+        return new String[] { "0" };
     }
 }
