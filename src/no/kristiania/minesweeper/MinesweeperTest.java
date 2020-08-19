@@ -21,7 +21,20 @@ public class MinesweeperTest {
         );
     }
 
+    @Test
+    void itShouldDisplayCorrectNumberOfRows() {
+        assertArrayEquals(
+                new String[] { "0", "0", "0" },
+                displayBoard(new String[] { ".", ".", "." })
+        );
+    }
+
     private String[] displayBoard(String[] input) {
-        return new String[] { "0" };
+        if (input[0].charAt(0) == '*') {
+            return new String[] { "*" };
+        }
+        String[] board = new String[input.length];
+        board[0] = "0";
+        return board;
     }
 }
