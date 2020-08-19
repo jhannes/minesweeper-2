@@ -48,17 +48,23 @@ public class MinesweeperTest {
 
 
     private String[] displayBoard(String[] input) {
-        if (input[0].charAt(0) == '*') {
-            return new String[] { "*" };
-        }
+
         String[] board = new String[input.length];
         for (int row = 0; row < board.length; row++) {
             String rowString = "";
             for (int column = 0; column < input[row].length(); column++) {
-                rowString += "0";
+                if (hasMine(input, row, column)) {
+                    rowString += "*";
+                } else {
+                    rowString += "0";
+                }
             }
             board[row] = rowString;
         }
         return board;
+    }
+
+    private boolean hasMine(String[] input, int row, int column) {
+        return input[row].charAt(column) == '*';
     }
 }
