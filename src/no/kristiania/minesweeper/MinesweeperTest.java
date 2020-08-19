@@ -29,12 +29,24 @@ public class MinesweeperTest {
         );
     }
 
+    @Test
+    void itShouldDisplayCorrectNumberOfColumns() {
+        assertArrayEquals(
+                new String[] {"000"},
+                displayBoard(new String[] {"..."})
+        );
+    }
+
+
+
     private String[] displayBoard(String[] input) {
         if (input[0].charAt(0) == '*') {
             return new String[] { "*" };
         }
         String[] board = new String[input.length];
-        board[0] = "0";
+        for (int i = 0; i < board.length; i++) {
+            board[i] = "0";
+        }
         return board;
     }
 }
